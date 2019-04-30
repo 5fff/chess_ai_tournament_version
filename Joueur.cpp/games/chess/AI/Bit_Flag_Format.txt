@@ -1,0 +1,34 @@
+
+Chess Piece is Represented using Unsigned Char, it is defined as struct so I can give it member functions
+as well as distinguish it from char
+Below is Bit Flag definition
+
+
+
++---------------+-----------+-----------+--------+---+-----+-----+-----+
+|       0       |     1     |     2     |   3    | 4 |  5  |  6  |  7  |
++---------------+-----------+-----------+--------+---+-----+-----+-----+
+| 1 = Is Piece  | 0 = Black |        Type Code       | N/A | N/A | N/A |
+|               |           |     000      Pawn      |     |     |     |
+| 0 = Empty     | 1 = White |     001      Knight    |     |     |     |
+|               |           |     010      Bishop    |     |     |     |
+|               |           |     011      Rook      |     |     |     |
+|               |           |     100      Queen     |     |     |     |
+|               |           |     101      King      |     |     |     |
++---------------+-----------+-----------+--------+---+-----+-----+-----+
+
+
+
+
+Within Node object
+
+A char represent En Passant index (-1 = None)
+
+An unsigned char represent castling availability
+
++------------------------+-------------------------+------------------------+-------------------------+-----+-----+-----+-----+
+|           0            |            1            |           2            |            3            |  4  |  5  |  6  |  7  |
++------------------------+-------------------------+------------------------+-------------------------+-----+-----+-----+-----+
+| k                      | q                       | K                      | Q                       | N/A | N/A | N/A | N/A |
+| Black King Side Castle | Black Queen Side Castle | White King Side Castle | White Queen Side Castle |     |     |     |     |
++------------------------+-------------------------+------------------------+-------------------------+-----+-----+-----+-----+

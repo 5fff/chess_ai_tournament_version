@@ -1,0 +1,73 @@
+// This is unit testing code
+//this is for unit testing only
+
+#include <iostream>
+#include <string>
+#include <bitset>
+
+#include "my_helper_functions.h"
+#include "my_chess_board.h"
+#include "move_generation_functions.h"
+
+using namespace std;
+
+int main()
+{
+
+  string test_fen[] =
+  {
+  // "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+  // "r4bn1/5pBr/6p1/p1PQp1k1/8/8/PP3PPP/RN1K1BNR b - - 0 28",
+  // "r3kbn1/2P1pp1r/1q4pB/pQP5/8/7b/PP3PPP/RN1QKBNR b KQq - 0 15",
+  // "r2qkbnr/4pp2/2n3pB/pQPp4/4P3/7b/PP3PPP/RN1QKBNR b KQkq - 4 12",
+  // "rn1qkbnr/1pp1pppp/8/p2P4/3PP3/7b/PP3PPP/RNBQKBNR b KQkq - 0 5",
+  // "rnbqkbnr/ppp1pppp/8/3p4/3P4/4P3/PPP2PPP/RNBQKBNR b KQkq d3 0 2",
+  // "r1bqkbnr/pppppp1p/8/1B4p1/1n1PP3/8/PPP2PPP/RNBQK1NR w KQkq g6 0 4",
+  // "rnbqkbnr/p4ppp/1pppp3/8/8/NPPPPP1N/PBQ1B1PP/R3K2R b KQkq - 0 4",
+  // "rnbq2nr/pk3PpP/1pppp3/8/8/NPPPP2N/PBQ1B2P/R3K2R b KQkq - 0 4",
+  // "r3k2r/1pp1qppp/p1n4n/1P1PP3/1b4P1/2P4b/P4P1P/RNBQKBNR b KQkq g3 0 9",
+  // "r1bqkb1r/ppp1pppp/n7/2PpPn2/8/8/PP1P1PPP/RNBQKBNR w KQkq d6 0 5",
+  "2r1kbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 7 11"
+  // "rn1qkbnr/1pp1pppp/p7/1P1p4/3P4/4P2b/P1P2PPP/RNBQKBNR b KQkq - 0 4"
+  };
+  // Chess_Node test_node;
+  for(string s : test_fen)
+  {
+    // cout << prettyFEN(s,string_split(s, ' ')[1]);
+    Chess_Board test;
+    test.load_fen(s);
+    test.print_board();
+    vector<move_obj> tmp_vec;
+    generate_moves(tmp_vec,test);
+    cout<<tmp_vec.size()<<" ";
+    for(move_obj k : tmp_vec)
+    {
+      // cout<<"============================"<<endl;
+      // test.print_board();
+      // Chess_Board test_copy(test);
+      cout<<"\t\t\t\t\t"<<translate_to_san(k)<<endl;
+      // test_copy.update(k);
+      // test_copy.print_board();
+
+    }
+    cout<<endl<<endl;
+    // for(short row=7;row>=0;row--)
+    // {
+    //   for(short col=0;col<8;col++)
+    //   {
+    //     //cout<<square_is_attacked(test,{row,col},'w')<<" ";
+    //     // vector<move_obj> tmp_vec =who_can_attack_square(test, {row,col}, 'w');
+    //     // vector<move_obj> tmp_vec =who_can_move_to_square(test, {row,col}, 'b');
+    //
+    //     // bool tmp = square_is_attacked(test,{row,col});
+    //   }
+    //   cout<<endl;
+    // }
+
+  }
+
+
+
+
+  return 0;
+}

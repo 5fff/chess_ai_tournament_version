@@ -1,0 +1,4 @@
+./cpp-client Chess -s game.siggame.io -r testxrc666
+
+gdb ./
+r Chess -s game.siggame.io -r testxrc666
